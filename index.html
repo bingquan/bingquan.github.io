@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingquan Shen</title>
+  <meta name="description" content="Bingquan Shen — Principal Member of Technical Staff at DSO National Laboratories. Research in AI safety, agentic systems, and adversarial machine learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface-2: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-2: #475569;
+      --text-3: #94a3b8;
+      --accent: #4f46e5;
+      --accent-h: #4338ca;
+      --accent-bg: #eef2ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 0 max(1.5rem, calc((100% - 860px) / 2));
+      gap: 2rem;
+    }
+
+    .nav-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      flex: 1;
+    }
+    .nav-name:hover { text-decoration: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.825rem;
+      color: var(--text-2);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 4.5rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 2rem;
+    }
+
+    /* ── HERO ── */
+    #hero { padding: 5.5rem 0 4.5rem; border-top: none; }
+
+    .hero-accent-bar {
+      width: 40px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 9999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-role {
+      font-size: 0.975rem;
+      font-weight: 500;
+      color: var(--text-2);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-affil {
+      font-size: 0.875rem;
+      color: var(--text-3);
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      border: 1.5px solid var(--border);
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+    .pill:hover {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pill svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .stats {
+      display: flex;
+      gap: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-val {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-lbl {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    /* ── ABOUT ── */
+    #about .body {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 660px;
+    }
+    #about .body p + p { margin-top: 1rem; }
+
+    /* ── RESEARCH ── */
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .interest-card {
+      padding: 1.5rem;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .interest-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-bg);
+    }
+
+    .interest-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+
+    .interest-card h3 {
+      font-size: 0.925rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .interest-card p {
+      font-size: 0.825rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .paper-links { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .paper-link {
+      font-size: 0.78rem;
+      color: var(--accent);
+      display: flex;
+      gap: 0.3rem;
+      align-items: flex-start;
+      line-height: 1.45;
+    }
+    .paper-link::before { content: '↗'; flex-shrink: 0; }
+    .paper-link:hover { text-decoration: underline; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-group { margin-bottom: 2.5rem; }
+
+    .year-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .year-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+
+    .year-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .pub-list { list-style: none; }
+
+    .pub-item {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--surface-2);
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-n {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      font-weight: 500;
+      min-width: 1.8rem;
+      text-align: right;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .pub-body { flex: 1; }
+
+    .pub-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors {
+      font-size: 0.775rem;
+      color: var(--text-2);
+      margin-bottom: 0.3rem;
+    }
+    .pub-authors b { color: var(--text); font-weight: 600; }
+
+    .pub-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.12rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .tag-conf  { background: #dbeafe; color: #1e40af; }
+    .tag-jour  { background: #d1fae5; color: #065f46; }
+    .tag-pre   { background: var(--surface-2); color: var(--text-3); }
+    .tag-cite  { background: transparent; color: var(--text-3); font-weight: 400; font-size: 0.7rem; padding-left: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    footer p { font-size: 0.78rem; color: var(--text-3); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero-name { font-size: 2rem; }
+      .stats { gap: 1.5rem; }
+      .nav-links { display: none; }
+      h2 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Bingquan Shen</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-accent-bar"></div>
+    <h1 class="hero-name">Bingquan Shen</h1>
+    <p class="hero-role">Principal Member of Technical Staff &middot; DSO National Laboratories</p>
+    <p class="hero-affil">Adjunct Assistant Professor &middot; National University of Singapore</p>
+
+    <div class="hero-links">
+      <a href="https://scholar.google.com/citations?user=zrJdj6YAAAAJ&hl=en" target="_blank" rel="noopener" class="pill">
+        <!-- Scholar icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://www.linkedin.com/in/shen-bingquan-6631143b/" target="_blank" rel="noopener" class="pill">
+        <!-- LinkedIn icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="stats">
+      <div>
+        <span class="stat-val">389</span>
+        <span class="stat-lbl">Citations</span>
+      </div>
+      <div>
+        <span class="stat-val">13</span>
+        <span class="stat-lbl">h-index</span>
+      </div>
+      <div>
+        <span class="stat-val">14</span>
+        <span class="stat-lbl">i10-index</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Bio</h2>
+    <div class="body">
+      <p>
+        I am a Principal Member of Technical Staff at <strong>DSO National Laboratories</strong> and an Adjunct
+        Assistant Professor at the <strong>National University of Singapore</strong>. My research spans AI safety,
+        adversarial machine learning, and the security of agentic AI systems.
+      </p>
+      <p>
+        My early work focused on assistive robotics — developing intent-recognition and adaptive control algorithms
+        for lower-extremity rehabilitation exoskeletons at NUS. Over time my interests shifted toward the security
+        and reliability of learning-based systems: adversarial examples, backdoor attacks, unlearnable data, and
+        multimodal deception detection.
+      </p>
+      <p>
+        Currently I am most excited about three interconnected questions: how world models can enable reliable
+        long-horizon planning, how agents can bootstrap and improve their own capabilities autonomously, and what
+        guarantees can be made about safety when LLMs act as autonomous agents in multi-agent pipelines.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <div class="eyebrow">Research</div>
+    <h2>Current Interests</h2>
+    <div class="interest-grid">
+
+      <div class="interest-card">
+        <div class="interest-icon">🌍</div>
+        <h3>World Models for Long-Term Planning</h3>
+        <p>
+          Structured latent-space representations that let agents plan over extended horizons without
+          ground-truth environment rollouts — stable training, low compute, high-speed planning.
+        </p>
+        <div class="paper-links">
+          <a href="https://le-wm.github.io/" target="_blank" rel="noopener" class="paper-link">
+            LeWorldModel: Stable End-to-End JEPA from Pixels
+          </a>
+          <a href="https://arxiv.org/abs/2603.04379" target="_blank" rel="noopener" class="paper-link">
+            Helios: Real-Time Long Video Generation
+          </a>
+        </div>
+      </div>
+
+      <div class="interest-card">
+        <div class="interest-icon">🔄</div>
+        <h3>Self-Improving Agents</h3>
+        <p>
+          Systems that autonomously refine their own capabilities — from optimising evaluation
+          harnesses end-to-end to evolving reusable skill libraries through text-space edits.
+        </p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2603.28052" target="_blank" rel="noopener" class="paper-link">
+            Meta-Harness: End-to-End Optimisation of Model Harnesses
+          </a>
+          <a href="https://arxiv.org/abs/2605.23904" target="_blank" rel="noopener" class="paper-link">
+            SkillOpt: Executive Strategy for Self-Evolving Agent Skills
+          </a>
+        </div>
+      </div>
+
+      <div class="interest-card">
+        <div class="interest-icon">🛡️</div>
+        <h3>Safety of Agentic Systems</h3>
+        <p>
+          Understanding safety failures that emerge when LLMs act autonomously — from
+          single-agent red-teaming to indirect prompt injection in multi-agent pipelines.
+        </p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2605.04808" target="_blank" rel="noopener" class="paper-link">
+            DTap: Controllable Red-Teaming Platform for AI Agents
+          </a>
+          <a href="https://openreview.net/forum?id=eQ0bqlU7Zi" target="_blank" rel="noopener" class="paper-link">
+            OMNI-LEAK: Multi-Agent Data Leakage via Indirect Prompt Injection
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="wrap">
+    <div class="eyebrow">Publications</div>
+    <h2>Selected Works</h2>
+
+    <!-- 2026 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2026</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">1</span>
+          <div class="pub-body">
+            <div class="pub-title">Benchmarking Cross-Domain Audio-Visual Deception Detection</div>
+            <div class="pub-authors">X Guo, Z Yu, NM Selvaraj, <b>B Shen</b>, AWK Kong, AC Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-jour">IEEE Trans. Affective Computing</span>
+              <span class="tag tag-cite">20 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">2</span>
+          <div class="pub-body">
+            <div class="pub-title">Defending Multimodal Backdoored Models by Repulsive Visual Prompt Tuning</div>
+            <div class="pub-authors">Z Zhang, S He, H Wang, <b>B Shen</b>, L Feng</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">NeurIPS 2025</span>
+              <span class="tag tag-cite">18 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">3</span>
+          <div class="pub-body">
+            <div class="pub-title">When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models</div>
+            <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, Q Zhang, <b>B Shen</b>, AC Kot, X Jiang</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">CVPR 2026</span>
+              <span class="tag tag-cite">6 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">4</span>
+          <div class="pub-body">
+            <div class="pub-title">Make Anything Match Your Target: Universal Adversarial Perturbations against Closed-Source MLLMs via Multi-Crop Routed Meta Optimization</div>
+            <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, X Ke, Q Zhang, <b>B Shen</b>, A Kot, X Jiang</div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2026</span>
+              <span class="tag tag-cite">1 citation</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2025 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2025</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">5</span>
+          <div class="pub-body">
+            <div class="pub-title">Safety Mirage: How Spurious Correlations Undermine VLM Safety Fine-Tuning</div>
+            <div class="pub-authors">Y Chen, Y Yao, Y Zhang, <b>B Shen</b>, G Liu, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICLR 2025</span>
+              <span class="tag tag-cite">9 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">6</span>
+          <div class="pub-body">
+            <div class="pub-title">Forgetting to Forget: Attention Sink as A Gateway for Backdooring LLM Unlearning</div>
+            <div class="pub-authors">B Shang, Y Chen, Y Zhang, <b>B Shen</b>, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2025</span>
+              <span class="tag tag-cite">5 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">7</span>
+          <div class="pub-body">
+            <div class="pub-title">Towards Effective and Robust Unlearnable Examples Against Object Detection</div>
+            <div class="pub-authors">C Yi, R Meng, H Peng, <b>B Shen</b>, AC Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICIP 2025</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">8</span>
+          <div class="pub-body">
+            <div class="pub-title">One Small Step with Fingerprints, One Giant Leap for De Novo Molecule Generation from Mass Spectra</div>
+            <div class="pub-authors">NKN Neo, L Jing, NYZ Preston, KXT Serene, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2025</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">9</span>
+          <div class="pub-body">
+            <div class="pub-title">Whisper Smarter, Not Harder: Adversarial Attack on Partial Suppression</div>
+            <div class="pub-authors">ZJ Wong, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2025</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">10</span>
+          <div class="pub-body">
+            <div class="pub-title">Stool Recognition for Colorectal Cancer Detection through Deep Learning</div>
+            <div class="pub-authors">GHE Tan, KXR Goh, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IEEE ICMI 2025</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2024 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2024</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">11</span>
+          <div class="pub-body">
+            <div class="pub-title">From Trojan Horses to Castle Walls: Unveiling Bilateral Data Poisoning Effects in Diffusion Models</div>
+            <div class="pub-authors">Z Pan, Y Yao, G Liu, <b>B Shen</b>, HV Zhao, RR Kompella, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">NeurIPS 2024</span>
+              <span class="tag tag-cite">14 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">12</span>
+          <div class="pub-body">
+            <div class="pub-title">Flexible-Modal Deception Detection with Audio-Visual Adapter</div>
+            <div class="pub-authors">Z Li, Z Yu, X Lin, NM Selvaraj, X Guo, <b>B Shen</b>, AWK Kong, A Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IJCB 2024</span>
+              <span class="tag tag-cite">13 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">13</span>
+          <div class="pub-body">
+            <div class="pub-title">Semantic Deep Hiding for Robust Unlearnable Examples</div>
+            <div class="pub-authors">R Meng, C Yi, Y Yu, S Yang, <b>B Shen</b>, AC Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-jour">IEEE Trans. Information Forensics &amp; Security</span>
+              <span class="tag tag-cite">22 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">14</span>
+          <div class="pub-body">
+            <div class="pub-title">Backdoor Secrets Unveiled: Identifying Backdoor Data with Optimized Scaled Prediction Consistency</div>
+            <div class="pub-authors">S Pal, Y Yao, R Wang, <b>B Shen</b>, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2024</span>
+              <span class="tag tag-cite">25 citations</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2023 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2023</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">15</span>
+          <div class="pub-body">
+            <div class="pub-title">Audio-Visual Deception Detection: DOLOS Dataset and Parameter-Efficient Crossmodal Learning</div>
+            <div class="pub-authors">X Guo, NM Selvaraj, Z Yu, AWK Kong, <b>B Shen</b>, A Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICCV 2023</span>
+              <span class="tag tag-cite">56 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">16</span>
+          <div class="pub-body">
+            <div class="pub-title">Adapter Incremental Continual Learning of Efficient Audio Spectrogram Transformers</div>
+            <div class="pub-authors">NM Selvaraj, X Guo, A Kong, <b>B Shen</b>, A Kot</div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2023</span>
+              <span class="tag tag-cite">18 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">17</span>
+          <div class="pub-body">
+            <div class="pub-title">A Novel Real-Time Arrhythmia Detection Model Using YOLOv8</div>
+            <div class="pub-authors">GJN Ang, AK Goil, H Chan, JJ Lew, XC Lee, et al.</div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2023</span>
+              <span class="tag tag-cite">29 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">18</span>
+          <div class="pub-body">
+            <div class="pub-title">Balancing Exploration and Exploitation: Disentangled &beta;-CVAE in De Novo Drug Design</div>
+            <div class="pub-authors">GJN Ang, DTI Chin, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2023</span>
+              <span class="tag tag-cite">2 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">19</span>
+          <div class="pub-body">
+            <div class="pub-title">Self-Supervised Learning for 3D CT Scan Segmentation</div>
+            <div class="pub-authors"><b>B Shen</b>, YKT Low</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IRC-SET 2023</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">20</span>
+          <div class="pub-body">
+            <div class="pub-title">Tackling VQA with Pretrained Foundation Models without Further Training</div>
+            <div class="pub-authors">ADJ Tan, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2023</span>
+              <span class="tag tag-cite">2 citations</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2022 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2022</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">21</span>
+          <div class="pub-body">
+            <div class="pub-title">Self-Supervised Learning with Deep Neural Networks for Computer Vision</div>
+            <div class="pub-authors">THX Gregory, NS Chuan, <b>S Bingquan</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IRC-SET 2022</span>
+              <span class="tag tag-cite">2 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">22</span>
+          <div class="pub-body">
+            <div class="pub-title">Anti-Virus Autobots: Predicting More Infectious Virus Variants for Pandemic Prevention through Deep Learning</div>
+            <div class="pub-authors">GTH En, KT Erhn, <b>S Bingquan</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-pre">arXiv 2022</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2019 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2019</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">23</span>
+          <div class="pub-body">
+            <div class="pub-title">Human Attribute Classification for Re-Identification Across Non-Overlapping Cameras</div>
+            <div class="pub-authors">WJC Gao, PS Keong, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IRC-SET 2019</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2015 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2015</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">24</span>
+          <div class="pub-body">
+            <div class="pub-title">Novel Functional Task-Based Gait Assistance Control of Lower Extremity Assistive Device for Level Walking</div>
+            <div class="pub-authors">J Li, <b>B Shen</b>, CM Chew, C Teo, A Poo</div>
+            <div class="pub-tags">
+              <span class="tag tag-jour">IEEE Trans. Industrial Electronics</span>
+              <span class="tag tag-cite">29 citations</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2014 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2014</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">25</span>
+          <div class="pub-body">
+            <div class="pub-title">Functional Task Based Assistance During Walking for a Lower Extremity Assistive Device</div>
+            <div class="pub-authors"><b>B Shen</b>, J Li, CM Chew</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICRA 2014</span>
+              <span class="tag tag-cite">8 citations</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2013 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2013</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">26</span>
+          <div class="pub-body">
+            <div class="pub-title">Motion Intent Recognition for Control of a Lower Extremity Assistive Device (LEAD)</div>
+            <div class="pub-authors"><b>B Shen</b>, J Li, F Bai, CM Chew</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IEEE ICMA 2013</span>
+              <span class="tag tag-cite">30 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">27</span>
+          <div class="pub-body">
+            <div class="pub-title">Muscle Force Estimation Method with Surface EMG for a Lower Extremities Rehabilitation Device</div>
+            <div class="pub-authors">F Bai, CM Chew, J Li, <b>B Shen</b>, TM Lubecki</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICORR 2013</span>
+              <span class="tag tag-cite">19 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">28</span>
+          <div class="pub-body">
+            <div class="pub-title">Development and Control of a Lower Extremity Assistive Device (LEAD) for Gait Rehabilitation</div>
+            <div class="pub-authors"><b>B Shen</b>, J Li, F Bai, CM Chew</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICORR 2013</span>
+              <span class="tag tag-cite">12 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">29</span>
+          <div class="pub-body">
+            <div class="pub-title">First Implementation Results on FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device</div>
+            <div class="pub-authors">J Li, <b>B Shen</b>, F Bai, CM Chew, CL Teo</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IEEE ICMA 2013</span>
+              <span class="tag tag-cite">5 citations</span>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">30</span>
+          <div class="pub-body">
+            <div class="pub-title">FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device: Simulation Results</div>
+            <div class="pub-authors">J Li, <b>B Shen</b>, CM Chew</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IEEE/ASME AIM 2013</span>
+              <span class="tag tag-cite">1 citation</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>Bingquan Shen &nbsp;&middot;&nbsp; DSO National Laboratories, Singapore &nbsp;&middot;&nbsp; Updated June 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
