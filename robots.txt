@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bingquan.github.io/sitemap.xml
