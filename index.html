@@ -65,7 +65,8 @@
         "https://scholar.google.com/citations?user=zrJdj6YAAAAJ&hl=en",
         "https://openreview.net/profile?id=~Bingquan_Shen1",
         "https://www.linkedin.com/in/shen-bingquan-6631143b/",
-        "https://huggingface.co/bingquan"
+        "https://huggingface.co/bingquan",
+        "https://github.com/bingquan"
       ]
     }
   }
@@ -88,6 +89,31 @@
       --accent: #4f46e5;
       --accent-h: #4338ca;
       --accent-bg: #eef2ff;
+      --nav-bg: rgba(255,255,255,0.88);
+      --shadow: rgba(15,23,42,0.12);
+      --conf-bg: #dbeafe; --conf-fg: #1e40af;
+      --jour-bg: #d1fae5; --jour-fg: #065f46;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --surface: #111827;
+        --surface-2: #1e293b;
+        --border: #263247;
+        --text: #e2e8f0;
+        --text-2: #a8b3c4;
+        --text-3: #8391a7;
+        --accent: #818cf8;
+        --accent-h: #a5b4fc;
+        --accent-bg: #1e1b4b;
+        --nav-bg: rgba(11,17,32,0.85);
+        --shadow: rgba(0,0,0,0.45);
+        --conf-bg: #1e3a5f; --conf-fg: #bfdbfe;
+        --jour-bg: #123d30; --jour-fg: #a7f3d0;
+        color-scheme: dark;
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,7 +137,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.88);
+      background: var(--nav-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
@@ -188,7 +214,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--bg);
-      box-shadow: 0 0 0 1.5px var(--border), 0 10px 30px rgba(15,23,42,0.12);
+      box-shadow: 0 0 0 1.5px var(--border), 0 10px 30px var(--shadow);
     }
     .hero-photo-fallback {
       display: none;
@@ -333,6 +359,13 @@
     }
 
     .paper-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .paper-links-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
 
     .paper-link {
       font-size: 0.78rem;
@@ -400,6 +433,11 @@
       margin-bottom: 0.25rem;
     }
 
+    .pub-title a { color: inherit; }
+    .pub-title a:hover { color: var(--accent); text-decoration: underline; }
+
+    .code-link { font-size: 0.72rem; font-weight: 600; }
+
     .pub-authors {
       font-size: 0.775rem;
       color: var(--text-2);
@@ -421,8 +459,8 @@
       border-radius: 4px;
     }
 
-    .tag-conf  { background: #dbeafe; color: #1e40af; }
-    .tag-jour  { background: #d1fae5; color: #065f46; }
+    .tag-conf  { background: var(--conf-bg); color: var(--conf-fg); }
+    .tag-jour  { background: var(--jour-bg); color: var(--jour-fg); }
     .tag-pre   { background: var(--surface-2); color: var(--text-3); }
     .tag-cite  { background: transparent; color: var(--text-3); font-weight: 400; font-size: 0.7rem; padding-left: 0; }
 
@@ -557,6 +595,11 @@
           <a href="https://openreview.net/profile?id=~Bingquan_Shen1" target="_blank" rel="me noopener" class="pill">
             OpenReview
           </a>
+          <a href="https://github.com/bingquan" target="_blank" rel="me noopener" class="pill">
+            <!-- GitHub icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
           <a href="https://huggingface.co/bingquan" target="_blank" rel="me noopener" class="pill">
             Hugging Face
           </a>
@@ -646,6 +689,7 @@
           ground-truth environment rollouts — stable training, low compute, high-speed planning.
         </p>
         <div class="paper-links">
+          <span class="paper-links-label">Papers I'm following</span>
           <a href="https://le-wm.github.io/" target="_blank" rel="noopener" class="paper-link">
             LeWorldModel: Stable End-to-End JEPA from Pixels
           </a>
@@ -663,6 +707,7 @@
           harnesses end-to-end to evolving reusable skill libraries through text-space edits.
         </p>
         <div class="paper-links">
+          <span class="paper-links-label">Papers I'm following</span>
           <a href="https://arxiv.org/abs/2603.28052" target="_blank" rel="noopener" class="paper-link">
             Meta-Harness: End-to-End Optimisation of Model Harnesses
           </a>
@@ -680,6 +725,7 @@
           single-agent red-teaming to indirect prompt injection in multi-agent pipelines.
         </p>
         <div class="paper-links">
+          <span class="paper-links-label">Papers I'm following</span>
           <a href="https://arxiv.org/abs/2605.04808" target="_blank" rel="noopener" class="paper-link">
             DTap: Controllable Red-Teaming Platform for AI Agents
           </a>
@@ -706,29 +752,55 @@
         <li class="pub-item">
           <span class="pub-n">1</span>
           <div class="pub-body">
-            <div class="pub-title">Benchmarking Cross-Domain Audio-Visual Deception Detection</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2405.06995" target="_blank" rel="noopener">Benchmarking Cross-Domain Audio-Visual Deception Detection</a></div>
             <div class="pub-authors">X Guo, Z Yu, NM Selvaraj, <b>B Shen</b>, AWK Kong, AC Kot</div>
             <div class="pub-tags">
               <span class="tag tag-jour">IEEE Trans. Affective Computing</span>
               <span class="tag tag-cite">20 citations</span>
+              <a href="https://github.com/Redaimao/cross_domain_DD" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">2</span>
           <div class="pub-body">
-            <div class="pub-title">When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2511.21192" target="_blank" rel="noopener">When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models</a></div>
             <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, Q Zhang, <b>B Shen</b>, AC Kot, X Jiang</div>
             <div class="pub-tags">
               <span class="tag tag-conf">CVPR 2026</span>
               <span class="tag tag-cite">6 citations</span>
+              <a href="https://github.com/yuyi-sd/UPA-RFAS" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">3</span>
           <div class="pub-body">
-            <div class="pub-title">Make Anything Match Your Target: Universal Adversarial Perturbations against Closed-Source MLLMs via Multi-Crop Routed Meta Optimization</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2503.11832" target="_blank" rel="noopener">Safety Mirage: How Spurious Correlations Undermine VLM Safety Fine-Tuning and Can Be Mitigated by Machine Unlearning</a></div>
+            <div class="pub-authors">Y Chen, Y Yao, Y Zhang, <b>B Shen</b>, G Liu, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">ICLR 2026</span>
+              <span class="tag tag-cite">9 citations</span>
+              <a href="https://github.com/OPTML-Group/VLM-Safety-Unlearn" target="_blank" rel="noopener" class="code-link">[Code]</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">4</span>
+          <div class="pub-body">
+            <div class="pub-title"><a href="https://arxiv.org/abs/2510.17021" target="_blank" rel="noopener">Forgetting to Forget: Attention Sink as A Gateway for Backdooring LLM Unlearning</a></div>
+            <div class="pub-authors">B Shang, Y Chen, Y Zhang, <b>B Shen</b>, S Liu</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">COLM 2026</span>
+              <span class="tag tag-cite">5 citations</span>
+              <a href="https://github.com/OPTML-Group/Unlearn-Backdoor" target="_blank" rel="noopener" class="code-link">[Code]</a>
+            </div>
+          </div>
+        </li>
+        <li class="pub-item">
+          <span class="pub-n">5</span>
+          <div class="pub-body">
+            <div class="pub-title"><a href="https://arxiv.org/abs/2601.23179" target="_blank" rel="noopener">Make Anything Match Your Target: Universal Adversarial Perturbations against Closed-Source MLLMs via Multi-Crop Routed Meta Optimization</a></div>
             <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, X Ke, Q Zhang, <b>B Shen</b>, A Kot, X Jiang</div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2026</span>
@@ -744,42 +816,21 @@
       <div class="year-row"><span class="year-label">2025</span><span class="year-line"></span></div>
       <ul class="pub-list">
         <li class="pub-item">
-          <span class="pub-n">4</span>
+          <span class="pub-n">6</span>
           <div class="pub-body">
-            <div class="pub-title">Defending Multimodal Backdoored Models by Repulsive Visual Prompt Tuning</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2412.20392" target="_blank" rel="noopener">Defending Multimodal Backdoored Models by Repulsive Visual Prompt Tuning</a></div>
             <div class="pub-authors">Z Zhang, S He, H Wang, <b>B Shen</b>, L Feng</div>
             <div class="pub-tags">
               <span class="tag tag-conf">NeurIPS 2025</span>
               <span class="tag tag-cite">18 citations</span>
-            </div>
-          </div>
-        </li>
-        <li class="pub-item">
-          <span class="pub-n">5</span>
-          <div class="pub-body">
-            <div class="pub-title">Safety Mirage: How Spurious Correlations Undermine VLM Safety Fine-Tuning</div>
-            <div class="pub-authors">Y Chen, Y Yao, Y Zhang, <b>B Shen</b>, G Liu, S Liu</div>
-            <div class="pub-tags">
-              <span class="tag tag-conf">ICLR 2025</span>
-              <span class="tag tag-cite">9 citations</span>
-            </div>
-          </div>
-        </li>
-        <li class="pub-item">
-          <span class="pub-n">6</span>
-          <div class="pub-body">
-            <div class="pub-title">Forgetting to Forget: Attention Sink as A Gateway for Backdooring LLM Unlearning</div>
-            <div class="pub-authors">B Shang, Y Chen, Y Zhang, <b>B Shen</b>, S Liu</div>
-            <div class="pub-tags">
-              <span class="tag tag-pre">arXiv 2025</span>
-              <span class="tag tag-cite">5 citations</span>
+              <a href="https://github.com/zhangzf01/RVPT" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">7</span>
           <div class="pub-body">
-            <div class="pub-title">Towards Effective and Robust Unlearnable Examples Against Object Detection</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICIP55913.2025.11084567" target="_blank" rel="noopener">Towards Effective and Robust Unlearnable Examples Against Object Detection</a></div>
             <div class="pub-authors">C Yi, R Meng, H Peng, <b>B Shen</b>, AC Kot</div>
             <div class="pub-tags">
               <span class="tag tag-conf">ICIP 2025</span>
@@ -789,17 +840,17 @@
         <li class="pub-item">
           <span class="pub-n">8</span>
           <div class="pub-body">
-            <div class="pub-title">One Small Step with Fingerprints, One Giant Leap for De Novo Molecule Generation from Mass Spectra</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2508.04180" target="_blank" rel="noopener">One Small Step with Fingerprints, One Giant Leap for De Novo Molecule Generation from Mass Spectra</a></div>
             <div class="pub-authors">NKN Neo, L Jing, NYZ Preston, KXT Serene, <b>B Shen</b></div>
             <div class="pub-tags">
-              <span class="tag tag-pre">arXiv 2025</span>
+              <span class="tag tag-conf">NeurIPS 2025 AI4Mat Workshop</span>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">9</span>
           <div class="pub-body">
-            <div class="pub-title">Whisper Smarter, Not Harder: Adversarial Attack on Partial Suppression</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2508.09994" target="_blank" rel="noopener">Whisper Smarter, Not Harder: Adversarial Attack on Partial Suppression</a></div>
             <div class="pub-authors">ZJ Wong, <b>B Shen</b></div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2025</span>
@@ -809,7 +860,7 @@
         <li class="pub-item">
           <span class="pub-n">10</span>
           <div class="pub-body">
-            <div class="pub-title">Stool Recognition for Colorectal Cancer Detection through Deep Learning</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2410.17288" target="_blank" rel="noopener">Stool Recognition for Colorectal Cancer Detection through Deep Learning</a></div>
             <div class="pub-authors">GHE Tan, KXR Goh, <b>B Shen</b></div>
             <div class="pub-tags">
               <span class="tag tag-conf">IEEE ICMI 2025</span>
@@ -826,29 +877,31 @@
         <li class="pub-item">
           <span class="pub-n">11</span>
           <div class="pub-body">
-            <div class="pub-title">From Trojan Horses to Castle Walls: Unveiling Bilateral Data Poisoning Effects in Diffusion Models</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2311.02373" target="_blank" rel="noopener">From Trojan Horses to Castle Walls: Unveiling Bilateral Data Poisoning Effects in Diffusion Models</a></div>
             <div class="pub-authors">Z Pan, Y Yao, G Liu, <b>B Shen</b>, HV Zhao, RR Kompella, S Liu</div>
             <div class="pub-tags">
               <span class="tag tag-conf">NeurIPS 2024</span>
               <span class="tag tag-cite">14 citations</span>
+              <a href="https://github.com/OPTML-Group/BiBadDiff" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">12</span>
           <div class="pub-body">
-            <div class="pub-title">Flexible-Modal Deception Detection with Audio-Visual Adapter</div>
-            <div class="pub-authors">Z Li, Z Yu, X Lin, NM Selvaraj, X Guo, <b>B Shen</b>, AWK Kong, A Kot</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2403.10717" target="_blank" rel="noopener">Backdoor Secrets Unveiled: Identifying Backdoor Data with Optimized Scaled Prediction Consistency</a></div>
+            <div class="pub-authors">S Pal, Y Yao, R Wang, <b>B Shen</b>, S Liu</div>
             <div class="pub-tags">
-              <span class="tag tag-conf">IJCB 2024</span>
-              <span class="tag tag-cite">13 citations</span>
+              <span class="tag tag-conf">ICLR 2024</span>
+              <span class="tag tag-cite">25 citations</span>
+              <a href="https://github.com/OPTML-Group/BackdoorMSPC" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">13</span>
           <div class="pub-body">
-            <div class="pub-title">Semantic Deep Hiding for Robust Unlearnable Examples</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2406.17349" target="_blank" rel="noopener">Semantic Deep Hiding for Robust Unlearnable Examples</a></div>
             <div class="pub-authors">R Meng, C Yi, Y Yu, S Yang, <b>B Shen</b>, AC Kot</div>
             <div class="pub-tags">
               <span class="tag tag-jour">IEEE Trans. Information Forensics &amp; Security</span>
@@ -859,11 +912,11 @@
         <li class="pub-item">
           <span class="pub-n">14</span>
           <div class="pub-body">
-            <div class="pub-title">Backdoor Secrets Unveiled: Identifying Backdoor Data with Optimized Scaled Prediction Consistency</div>
-            <div class="pub-authors">S Pal, Y Yao, R Wang, <b>B Shen</b>, S Liu</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2302.05727" target="_blank" rel="noopener">Flexible-Modal Deception Detection with Audio-Visual Adapter</a></div>
+            <div class="pub-authors">Z Li, Z Yu, X Lin, NM Selvaraj, X Guo, <b>B Shen</b>, AWK Kong, A Kot</div>
             <div class="pub-tags">
-              <span class="tag tag-pre">arXiv 2024</span>
-              <span class="tag tag-cite">25 citations</span>
+              <span class="tag tag-conf">IJCB 2024</span>
+              <span class="tag tag-cite">13 citations</span>
             </div>
           </div>
         </li>
@@ -880,30 +933,32 @@
         <li class="pub-item">
           <span class="pub-n">15</span>
           <div class="pub-body">
-            <div class="pub-title">Audio-Visual Deception Detection: DOLOS Dataset and Parameter-Efficient Crossmodal Learning</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2303.12745" target="_blank" rel="noopener">Audio-Visual Deception Detection: DOLOS Dataset and Parameter-Efficient Crossmodal Learning</a></div>
             <div class="pub-authors">X Guo, NM Selvaraj, Z Yu, AWK Kong, <b>B Shen</b>, A Kot</div>
             <div class="pub-tags">
               <span class="tag tag-conf">ICCV 2023</span>
               <span class="tag tag-cite">56 citations</span>
+              <a href="https://github.com/NMS05/Audio-Visual-Deception-Detection-DOLOS-Dataset-and-Parameter-Efficient-Crossmodal-Learning" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">16</span>
           <div class="pub-body">
-            <div class="pub-title">Adapter Incremental Continual Learning of Efficient Audio Spectrogram Transformers</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2302.14314" target="_blank" rel="noopener">Adapter Incremental Continual Learning of Efficient Audio Spectrogram Transformers</a></div>
             <div class="pub-authors">NM Selvaraj, X Guo, A Kong, <b>B Shen</b>, A Kot</div>
             <div class="pub-tags">
-              <span class="tag tag-pre">arXiv 2023</span>
+              <span class="tag tag-conf">Interspeech 2023</span>
               <span class="tag tag-cite">18 citations</span>
+              <a href="https://github.com/NMS05/Adapter-Incremental-Continual-Learning-AST" target="_blank" rel="noopener" class="code-link">[Code]</a>
             </div>
           </div>
         </li>
         <li class="pub-item">
           <span class="pub-n">17</span>
           <div class="pub-body">
-            <div class="pub-title">A Novel Real-Time Arrhythmia Detection Model Using YOLOv8</div>
-            <div class="pub-authors">GJN Ang, AK Goil, H Chan, JJ Lew, XC Lee, et al.</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2305.16727" target="_blank" rel="noopener">A Novel Real-Time Arrhythmia Detection Model Using YOLOv8</a></div>
+            <div class="pub-authors">GJN Ang, AK Goil, H Chan, JJ Lew, XC Lee, RBA Mustaffa, T Jason, ZT Woon, <b>B Shen</b></div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2023</span>
               <span class="tag tag-cite">29 citations</span>
@@ -913,7 +968,7 @@
         <li class="pub-item">
           <span class="pub-n">18</span>
           <div class="pub-body">
-            <div class="pub-title">Balancing Exploration and Exploitation: Disentangled &beta;-CVAE in De Novo Drug Design</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2306.01683" target="_blank" rel="noopener">Balancing Exploration and Exploitation: Disentangled &beta;-CVAE in De Novo Drug Design</a></div>
             <div class="pub-authors">GJN Ang, DTI Chin, <b>B Shen</b></div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2023</span>
@@ -924,17 +979,7 @@
         <li class="pub-item">
           <span class="pub-n">19</span>
           <div class="pub-body">
-            <div class="pub-title">Self-Supervised Learning for 3D CT Scan Segmentation</div>
-            <div class="pub-authors"><b>B Shen</b>, YKT Low</div>
-            <div class="pub-tags">
-              <span class="tag tag-conf">IRC-SET 2023</span>
-            </div>
-          </div>
-        </li>
-        <li class="pub-item">
-          <span class="pub-n">20</span>
-          <div class="pub-body">
-            <div class="pub-title">Tackling VQA with Pretrained Foundation Models without Further Training</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2309.15487" target="_blank" rel="noopener">Tackling VQA with Pretrained Foundation Models without Further Training</a></div>
             <div class="pub-authors">ADJ Tan, <b>B Shen</b></div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2023</span>
@@ -950,20 +995,19 @@
       <div class="year-row"><span class="year-label">2022</span><span class="year-line"></span></div>
       <ul class="pub-list">
         <li class="pub-item">
-          <span class="pub-n">21</span>
+          <span class="pub-n">20</span>
           <div class="pub-body">
-            <div class="pub-title">Self-Supervised Learning with Deep Neural Networks for Computer Vision</div>
-            <div class="pub-authors">THX Gregory, NS Chuan, <b>S Bingquan</b></div>
+            <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-981-19-7222-5_21" target="_blank" rel="noopener">Self-Supervised Learning for 3D CT Scan Segmentation</a></div>
+            <div class="pub-authors"><b>B Shen</b>, YKT Low</div>
             <div class="pub-tags">
               <span class="tag tag-conf">IRC-SET 2022</span>
-              <span class="tag tag-cite">2 citations</span>
             </div>
           </div>
         </li>
         <li class="pub-item">
-          <span class="pub-n">22</span>
+          <span class="pub-n">21</span>
           <div class="pub-body">
-            <div class="pub-title">Anti-Virus Autobots: Predicting More Infectious Virus Variants for Pandemic Prevention through Deep Learning</div>
+            <div class="pub-title"><a href="https://arxiv.org/abs/2205.14854" target="_blank" rel="noopener">Anti-Virus Autobots: Predicting More Infectious Virus Variants for Pandemic Prevention through Deep Learning</a></div>
             <div class="pub-authors">GTH En, KT Erhn, <b>S Bingquan</b></div>
             <div class="pub-tags">
               <span class="tag tag-pre">arXiv 2022</span>
@@ -973,31 +1017,49 @@
       </ul>
     </div>
 
-    <!-- 2019 -->
+    <!-- 2021 -->
     <div class="pub-group">
-      <div class="year-row"><span class="year-label">2019</span><span class="year-line"></span></div>
+      <div class="year-row"><span class="year-label">2021</span><span class="year-line"></span></div>
       <ul class="pub-list">
         <li class="pub-item">
-          <span class="pub-n">23</span>
+          <span class="pub-n">22</span>
           <div class="pub-body">
-            <div class="pub-title">Human Attribute Classification for Re-Identification Across Non-Overlapping Cameras</div>
-            <div class="pub-authors">WJC Gao, PS Keong, <b>B Shen</b></div>
+            <div class="pub-title"><a href="https://doi.org/10.1007/978-981-16-9869-9_47" target="_blank" rel="noopener">Self-Supervised Learning with Deep Neural Networks for Computer Vision</a></div>
+            <div class="pub-authors">THX Gregory, NS Chuan, <b>S Bingquan</b></div>
             <div class="pub-tags">
-              <span class="tag tag-conf">IRC-SET 2019</span>
+              <span class="tag tag-conf">IRC-SET 2021</span>
+              <span class="tag tag-cite">2 citations</span>
             </div>
           </div>
         </li>
       </ul>
     </div>
 
-    <!-- 2015 -->
+    <!-- 2018 -->
     <div class="pub-group">
-      <div class="year-row"><span class="year-label">2015</span><span class="year-line"></span></div>
+      <div class="year-row"><span class="year-label">2018</span><span class="year-line"></span></div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">23</span>
+          <div class="pub-body">
+            <div class="pub-title"><a href="https://doi.org/10.1007/978-981-32-9828-6_7" target="_blank" rel="noopener">Human Attribute Classification for Re-Identification Across Non-Overlapping Cameras</a></div>
+            <div class="pub-authors">WJC Gao, PS Keong, <b>B Shen</b></div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">IRC-SET 2018</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 2016 -->
+    <div class="pub-group">
+      <div class="year-row"><span class="year-label">2016</span><span class="year-line"></span></div>
       <ul class="pub-list">
         <li class="pub-item">
           <span class="pub-n">24</span>
           <div class="pub-body">
-            <div class="pub-title">Novel Functional Task-Based Gait Assistance Control of Lower Extremity Assistive Device for Level Walking</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/TIE.2015.2477347" target="_blank" rel="noopener">Novel Functional Task-Based Gait Assistance Control of Lower Extremity Assistive Device for Level Walking</a></div>
             <div class="pub-authors">J Li, <b>B Shen</b>, CM Chew, C Teo, A Poo</div>
             <div class="pub-tags">
               <span class="tag tag-jour">IEEE Trans. Industrial Electronics</span>
@@ -1015,7 +1077,7 @@
         <li class="pub-item">
           <span class="pub-n">25</span>
           <div class="pub-body">
-            <div class="pub-title">Functional Task Based Assistance During Walking for a Lower Extremity Assistive Device</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICRA.2014.6906617" target="_blank" rel="noopener">Functional Task Based Assistance During Walking for a Lower Extremity Assistive Device</a></div>
             <div class="pub-authors"><b>B Shen</b>, J Li, CM Chew</div>
             <div class="pub-tags">
               <span class="tag tag-conf">ICRA 2014</span>
@@ -1033,7 +1095,7 @@
         <li class="pub-item">
           <span class="pub-n">26</span>
           <div class="pub-body">
-            <div class="pub-title">Motion Intent Recognition for Control of a Lower Extremity Assistive Device (LEAD)</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICMA.2013.6618039" target="_blank" rel="noopener">Motion Intent Recognition for Control of a Lower Extremity Assistive Device (LEAD)</a></div>
             <div class="pub-authors"><b>B Shen</b>, J Li, F Bai, CM Chew</div>
             <div class="pub-tags">
               <span class="tag tag-conf">IEEE ICMA 2013</span>
@@ -1044,7 +1106,7 @@
         <li class="pub-item">
           <span class="pub-n">27</span>
           <div class="pub-body">
-            <div class="pub-title">Muscle Force Estimation Method with Surface EMG for a Lower Extremities Rehabilitation Device</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICORR.2013.6650419" target="_blank" rel="noopener">Muscle Force Estimation Method with Surface EMG for a Lower Extremities Rehabilitation Device</a></div>
             <div class="pub-authors">F Bai, CM Chew, J Li, <b>B Shen</b>, TM Lubecki</div>
             <div class="pub-tags">
               <span class="tag tag-conf">ICORR 2013</span>
@@ -1055,7 +1117,7 @@
         <li class="pub-item">
           <span class="pub-n">28</span>
           <div class="pub-body">
-            <div class="pub-title">Development and Control of a Lower Extremity Assistive Device (LEAD) for Gait Rehabilitation</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICORR.2013.6650367" target="_blank" rel="noopener">Development and Control of a Lower Extremity Assistive Device (LEAD) for Gait Rehabilitation</a></div>
             <div class="pub-authors"><b>B Shen</b>, J Li, F Bai, CM Chew</div>
             <div class="pub-tags">
               <span class="tag tag-conf">ICORR 2013</span>
@@ -1066,7 +1128,7 @@
         <li class="pub-item">
           <span class="pub-n">29</span>
           <div class="pub-body">
-            <div class="pub-title">First Implementation Results on FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/ICMA.2013.6618042" target="_blank" rel="noopener">First Implementation Results on FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device</a></div>
             <div class="pub-authors">J Li, <b>B Shen</b>, F Bai, CM Chew, CL Teo</div>
             <div class="pub-tags">
               <span class="tag tag-conf">IEEE ICMA 2013</span>
@@ -1077,7 +1139,7 @@
         <li class="pub-item">
           <span class="pub-n">30</span>
           <div class="pub-body">
-            <div class="pub-title">FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device: Simulation Results</div>
+            <div class="pub-title"><a href="https://doi.org/10.1109/AIM.2013.6584196" target="_blank" rel="noopener">FAT Based Adaptive Control for a Lower Extremity Rehabilitation Device: Simulation Results</a></div>
             <div class="pub-authors">J Li, <b>B Shen</b>, CM Chew</div>
             <div class="pub-tags">
               <span class="tag tag-conf">IEEE/ASME AIM 2013</span>
