@@ -31,7 +31,7 @@
     "name": "Shen Bingquan | AI Safety and Agentic AI Researcher",
     "description": "Research profile of Shen Bingquan, an AI safety and agentic AI researcher in Singapore.",
     "dateCreated": "2026-06-25",
-    "dateModified": "2026-07-04",
+    "dateModified": "2026-10-16",
     "mainEntity": {
       "@type": "Person",
       "@id": "https://bingquan.github.io/#person",
@@ -75,7 +75,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #ffffff;
@@ -84,7 +84,7 @@
       --border: #e2e8f0;
       --text: #0f172a;
       --text-2: #475569;
-      --text-3: #94a3b8;
+      --text-3: #64748b;
       --accent: #4f46e5;
       --accent-h: #4338ca;
       --accent-bg: #eef2ff;
@@ -467,8 +467,8 @@
       line-height: 1.6;
     }
 
-    .shelf-archive { margin-top: 1.75rem; }
-    .shelf-archive summary {
+    .archive { margin-top: 1.75rem; }
+    .archive summary {
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 600;
@@ -481,16 +481,17 @@
       padding: 0.3rem 0;
       user-select: none;
     }
-    .shelf-archive summary::-webkit-details-marker { display: none; }
-    .shelf-archive summary::before {
+    .archive summary::-webkit-details-marker { display: none; }
+    .archive summary::before {
       content: '+';
       font-weight: 700;
       font-size: 0.95rem;
       line-height: 1;
     }
-    .shelf-archive[open] summary::before { content: '−'; }
-    .shelf-archive summary:hover { text-decoration: underline; }
-    .shelf-archive .book-list { margin-top: 0.5rem; }
+    .archive[open] summary::before { content: '−'; }
+    .archive summary:hover { text-decoration: underline; }
+    .archive .book-list { margin-top: 0.5rem; }
+    .archive .pub-group:first-of-type { margin-top: 1.5rem; }
 
     /* ── FOOTER ── */
     footer {
@@ -504,7 +505,9 @@
     @media (max-width: 600px) {
       .hero-name { font-size: 2rem; }
       .stats { gap: 1.5rem; }
-      .nav-links { display: none; }
+      .nav-name { display: none; }
+      .nav-links { gap: 1.25rem; overflow-x: auto; scrollbar-width: none; white-space: nowrap; }
+      .nav-links::-webkit-scrollbar { display: none; }
       h2 { font-size: 1.35rem; }
       .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 1.5rem; margin-bottom: 2.5rem; }
       .hero-photo img,
@@ -553,6 +556,9 @@
           </a>
           <a href="https://openreview.net/profile?id=~Bingquan_Shen1" target="_blank" rel="me noopener" class="pill">
             OpenReview
+          </a>
+          <a href="https://huggingface.co/bingquan" target="_blank" rel="me noopener" class="pill">
+            Hugging Face
           </a>
         </div>
       </div>
@@ -633,7 +639,7 @@
     <div class="interest-grid">
 
       <div class="interest-card">
-        <div class="interest-icon">🌍</div>
+        <div class="interest-icon" aria-hidden="true">🌍</div>
         <h3>World Models for Long-Term Planning</h3>
         <p>
           Structured latent-space representations that let agents plan over extended horizons without
@@ -650,7 +656,7 @@
       </div>
 
       <div class="interest-card">
-        <div class="interest-icon">🔄</div>
+        <div class="interest-icon" aria-hidden="true">🔄</div>
         <h3>Self-Improving Agents</h3>
         <p>
           Systems that autonomously refine their own capabilities — from optimising evaluation
@@ -667,7 +673,7 @@
       </div>
 
       <div class="interest-card">
-        <div class="interest-icon">🛡️</div>
+        <div class="interest-icon" aria-hidden="true">🛡️</div>
         <h3>Safety of Agentic Systems</h3>
         <p>
           Understanding safety failures that emerge when LLMs act autonomously — from
@@ -691,7 +697,7 @@
 <section id="publications">
   <div class="wrap">
     <div class="eyebrow">Publications</div>
-    <h2>Selected Works</h2>
+    <h2>Publications</h2>
 
     <!-- 2026 -->
     <div class="pub-group">
@@ -711,17 +717,6 @@
         <li class="pub-item">
           <span class="pub-n">2</span>
           <div class="pub-body">
-            <div class="pub-title">Defending Multimodal Backdoored Models by Repulsive Visual Prompt Tuning</div>
-            <div class="pub-authors">Z Zhang, S He, H Wang, <b>B Shen</b>, L Feng</div>
-            <div class="pub-tags">
-              <span class="tag tag-conf">NeurIPS 2025</span>
-              <span class="tag tag-cite">18 citations</span>
-            </div>
-          </div>
-        </li>
-        <li class="pub-item">
-          <span class="pub-n">3</span>
-          <div class="pub-body">
             <div class="pub-title">When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models</div>
             <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, Q Zhang, <b>B Shen</b>, AC Kot, X Jiang</div>
             <div class="pub-tags">
@@ -731,7 +726,7 @@
           </div>
         </li>
         <li class="pub-item">
-          <span class="pub-n">4</span>
+          <span class="pub-n">3</span>
           <div class="pub-body">
             <div class="pub-title">Make Anything Match Your Target: Universal Adversarial Perturbations against Closed-Source MLLMs via Multi-Crop Routed Meta Optimization</div>
             <div class="pub-authors">H Lu, Y Yu, Y Yang, C Yi, X Ke, Q Zhang, <b>B Shen</b>, A Kot, X Jiang</div>
@@ -748,6 +743,17 @@
     <div class="pub-group">
       <div class="year-row"><span class="year-label">2025</span><span class="year-line"></span></div>
       <ul class="pub-list">
+        <li class="pub-item">
+          <span class="pub-n">4</span>
+          <div class="pub-body">
+            <div class="pub-title">Defending Multimodal Backdoored Models by Repulsive Visual Prompt Tuning</div>
+            <div class="pub-authors">Z Zhang, S He, H Wang, <b>B Shen</b>, L Feng</div>
+            <div class="pub-tags">
+              <span class="tag tag-conf">NeurIPS 2025</span>
+              <span class="tag tag-cite">18 citations</span>
+            </div>
+          </div>
+        </li>
         <li class="pub-item">
           <span class="pub-n">5</span>
           <div class="pub-body">
@@ -863,6 +869,9 @@
         </li>
       </ul>
     </div>
+
+    <details class="archive">
+      <summary>Earlier publications (2013–2023)</summary>
 
     <!-- 2023 -->
     <div class="pub-group">
@@ -1078,6 +1087,7 @@
         </li>
       </ul>
     </div>
+    </details>
 
   </div>
 </section>
@@ -1093,6 +1103,30 @@
     </p>
 
     <ul class="book-list">
+
+      <li class="book-item">
+        <div class="book-spine"></div>
+        <div class="book-body">
+          <div class="book-title"><cite>Zero to One</cite></div>
+          <div class="book-author">Peter Thiel with Blake Masters</div>
+          <p class="book-take">
+            Real progress comes from building something genuinely new rather than copying what works — the most
+            valuable question is which important truth few people agree with you on.
+          </p>
+        </div>
+      </li>
+
+      <li class="book-item">
+        <div class="book-spine"></div>
+        <div class="book-body">
+          <div class="book-title"><cite>Bird by Bird</cite></div>
+          <div class="book-author">Anne Lamott</div>
+          <p class="book-take">
+            Big work gets done one small, honest piece at a time — permission to write a bad first draft is as
+            useful for research papers as it is for fiction.
+          </p>
+        </div>
+      </li>
 
       <li class="book-item">
         <div class="book-spine"></div>
@@ -1130,35 +1164,35 @@
         </div>
       </li>
 
-      <li class="book-item">
-        <div class="book-spine"></div>
-        <div class="book-body">
-          <div class="book-title"><cite>The Gene: An Intimate History</cite></div>
-          <div class="book-author">Siddhartha Mukherjee</div>
-          <p class="book-take">
-            The gene is at once a scientific unit and a cultural idea, and our growing power to read and rewrite it
-            forces questions about identity and control that outrun the science itself.
-          </p>
-        </div>
-      </li>
-
-      <li class="book-item">
-        <div class="book-spine"></div>
-        <div class="book-body">
-          <div class="book-title"><cite>Why We Remember</cite></div>
-          <div class="book-author">Charan Ranganath</div>
-          <p class="book-take">
-            Memory isn't a recording of the past but a tool built for the future — we remember in order to imagine,
-            predict, and decide, not merely to look back.
-          </p>
-        </div>
-      </li>
-
     </ul>
 
-    <details class="shelf-archive">
+    <details class="archive">
       <summary>More from the shelf</summary>
       <ul class="book-list">
+
+        <li class="book-item">
+          <div class="book-spine"></div>
+          <div class="book-body">
+            <div class="book-title"><cite>The Gene: An Intimate History</cite></div>
+            <div class="book-author">Siddhartha Mukherjee</div>
+            <p class="book-take">
+              The gene is at once a scientific unit and a cultural idea, and our growing power to read and rewrite it
+              forces questions about identity and control that outrun the science itself.
+            </p>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <div class="book-spine"></div>
+          <div class="book-body">
+            <div class="book-title"><cite>Why We Remember</cite></div>
+            <div class="book-author">Charan Ranganath</div>
+            <p class="book-take">
+              Memory isn't a recording of the past but a tool built for the future — we remember in order to imagine,
+              predict, and decide, not merely to look back.
+            </p>
+          </div>
+        </li>
 
         <li class="book-item">
           <div class="book-spine"></div>
@@ -1216,7 +1250,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <p>Shen Bingquan &nbsp;&middot;&nbsp; DSO National Laboratories, Singapore &nbsp;&middot;&nbsp; Updated July 2026</p>
+    <p>Shen Bingquan &nbsp;&middot;&nbsp; DSO National Laboratories, Singapore &nbsp;&middot;&nbsp; Updated October 2026</p>
   </div>
 </footer>
 
